@@ -988,7 +988,7 @@ manage_automated_backups() {
             # Extract backup_time from the cron_expression
             hour=$(echo "$cron_expression" | awk '{print $2}')
             minute=$(echo "$cron_expression" | awk '{print $1}')
-            backup_time=$(printf "%02d:%02d" "$hour" "$minute")
+            backup_time=$(printf "%02.f:%02.f" "10#$hour" "$minute")
 
             # Extract backup frequency from cron_expression
             IFS=" " read -r -a cron_expression_parts <<<"$cron_expression"
